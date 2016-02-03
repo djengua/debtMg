@@ -1,0 +1,52 @@
+<template name="accounts">
+	{{> add_account}}
+	<div class="container">
+		<button class="btn btn-success js-show-account-form">add account</button>
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row">
+				<div class="col-lg-10 col-lg-offset-2">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+		                    <h5>Cuentas  registradas</h5>                    
+		                </div>
+						<div class="ibox-content">
+		                    <div class="table-responsive">
+								<table class="table table-striped table-bordered table-hover dataTables-example" >
+									<thead>
+					                    <tr>
+					                    	<th>id</th>
+						                    <th>Nombre</th>
+						                    <th>Efectivo</th>
+						                    <th>Fecha</th>
+					                    </tr>
+					                </thead>
+					                <tbody>
+					                {{#each bank_accounts}}	
+					                	<tr class="gradeX">
+					                		<td>{{_id}}</td>
+					                        <td>{{name}}</td>
+					                        <td>{{amount}}</td>
+					                        <td>{{formatDate creationDate}}</td>
+					                    </tr>
+					                {{/each}}    
+					                </tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+			  	</div>
+			</div>
+		</div>
+	</div>
+
+</template>
+
+<template name="add_account">
+	<form class="js-add-account">
+		<input type="text" id="_name">
+		<input type="text" id="_amount">
+
+		<button class="btn btn-success">add</button>
+	</form>
+</template>
